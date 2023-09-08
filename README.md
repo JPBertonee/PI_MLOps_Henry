@@ -1,2 +1,2 @@
-# PI_MLOps_Henry
-Machine Learning Operations Project
+# Proyecto Individual 1 
+Machine Learning Operations (MLOps)
