@@ -9,14 +9,14 @@ import gzip
 import ast
 
 # Leemos los dataframes que alimentaran a las distintas funciones
-df_items_full = pd.read_parquet('df_itrms_full.parquet')
-df_items_games = pd.read_parquet('df_items_games.parquet')
-df_items_recommend = pd.read_parquet('df_items_recommend.parquet')
-df_f2 = pd.read_parquet('df_f2.parquet')
-df_ranking = pd.read_parquet('df_ranking.parquet')
-df_user_genre= pd.read_parquet('df_user_genre.parquet')
-df_f5 = pd.read_parquet('df_f5.parquet')
-df_f6 = pd.read_parquet('df_f6.parquet')
+df_items_full = pd.read_parquet('data/df_itrms_full.parquet')
+df_items_games = pd.read_parquet('data/df_items_games.parquet')
+df_items_recommend = pd.read_parquet('data/df_items_recommend.parquet')
+df_f2 = pd.read_parquet('data/df_f2.parquet')
+df_ranking = pd.read_parquet('data/df_ranking.parquet')
+df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
+df_f5 = pd.read_parquet('data/df_f5.parquet')
+df_f6 = pd.read_parquet('data/df_f6.parquet')
 
 
 # Función 1
