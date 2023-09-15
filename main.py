@@ -134,15 +134,33 @@ def genre(genero):
     genre (str): El género de juegos del cual se quiere conocer el ranking de horas jugadas. 
 
     '''
-
-    #Filtramos el ranking según el genero y mostramos el valor de la columna posicion. 
-    posicion = df_ranking[df_ranking['genres'] == genero]['Posicion'].values().item()
-
-    return 'El género', genero, 'se encuentra en la posición', posicion   
-
+    # Filtramos el ranking según el género
+    posicion = df_ranking[df_ranking['genres'] == genero]['Posicion'].iloc[0].item()
+    
+    return {'El género': genero, 
+            'se encuentra en la posición':posicion
+    }
 
     
     # FUNCION 4
+@app.get("/userforgenre/{genre}", name = "User for Genre (Genero)")
+def userforgenre(genre):
+    '''
+    Devuelve el TOP 5 de usuarios con más horas jugadas en un género específico.
+
+    Argumento:
+    genre (str): El género de juegos para el que se desea obtener el TOP 5 de usuarios.
+    
+    '''
+
+    # Filtrar el DataFrame para obtener datos específicos del género
+    data = df_user_genre[df_user_genre['genres'] == genre]
+
+    # Tomar los primeros 5 registros del DataFrame
+    top5 = data[['user_id', 'user_url', 'playtime_forever']].head(5).reset_index(drop=True)
+
+    return  {'El TOP 5 de usuarios para el género' : genre, 
+             'es el siguiente' : top5}
     
     # FUNCION 5
     

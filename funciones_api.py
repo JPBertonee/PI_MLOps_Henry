@@ -95,7 +95,7 @@ def genre(genero):
     '''
 
     #Filtramos el ranking según el genero y mostramos el valor de la columna posicion. 
-    posicion = df_ranking[df_ranking['genres'] == genero]['Posicion'].iloc[0]
+    posicion = df_ranking[df_ranking['genres'] == genero]['Posicion'].iloc[0].item()
 
     return 'El género', genero, 'se encuentra en la posición', posicion
     
