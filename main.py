@@ -121,7 +121,7 @@ def countreviews(inicio, fin):
     }
     
     
-    # FUNCION 3
+# FUNCION 3
 @app.get("/genre/{genero}", name = "Genre (Genero)")
 def genre(genero):
 
@@ -142,13 +142,14 @@ def genre(genero):
     }
 
     
-    # FUNCION 4
+# FUNCION 4
 @app.get("/userforgenre/{genre}", name = "User for Genre (Genero)")
 def userforgenre(genre):
     '''
     Devuelve el TOP 5 de usuarios con más horas jugadas en un género específico.
 
     Argumento:
+    
     genre (str): El género de juegos para el que se desea obtener el TOP 5 de usuarios.
     
     '''
@@ -162,7 +163,8 @@ def userforgenre(genre):
     return  {'El TOP 5 de usuarios para el género' : genre, 
              'es el siguiente' : top5}
     
-    # FUNCION 5
+
+# FUNCION 5
 @app.get("/developer/{desarrollador}", name = "Developer (Desarrollador)")
 def developer(desarrollador):
 
@@ -170,6 +172,7 @@ def developer(desarrollador):
     Devuelve cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.
 
     Argumento:
+    
     desarrolador (str): El developer del juego (item) para el cual se desea obtener los valores mencionados. 
 
     '''
@@ -203,5 +206,35 @@ def developer(desarrollador):
     return resultados.to_dict(orient = 'records')
 
 
-    # FUNCION 6
+# FUNCION 6
+@app.get("/sentimet_analysis/{anio}", name = "Análisis de Sentimiento (Año)")
+def sentiment_analysis(anio):
+    ''' 
+    Devuelve un DataFrame con la cantidad de registros de reseñas de usuarios categorizados por análisis de sentimiento para un año específico.
+    
+    Argumentos:
+    
+    anio (int): Año en el cual queremos obtener el análisis de sentimiento.
+    df_f6 (DataFrame): El DataFrame que contiene los datos de reseñas y sentimientos.
+   
+    '''
 
+    # Filtramos el DataFrame según el año definido como argumento
+    df_filtered = df_f6[df_f6['posted'].dt.year == anio]
+    
+    # Utilizamos value_counts() para contar los valores únicos en la columna 'sentimiento'
+    sentiment_counts = df_filtered['sentimiento'].value_counts()
+
+    # Obtenemos la cantidad de valores positivos, negativos y neutros
+    positivos = sentiment_counts.get(2, 0)  # Valor 2 para positivos 
+    neutros = sentiment_counts.get(1, 0) # Valor 1 para neutros 
+    negativos = sentiment_counts.get(0, 0) # Valor 0 para negativos 
+
+    # Crear un DataFrame con los resultados
+    resultado = pd.DataFrame({
+        'Positivos': [positivos],
+        'Neutros': [neutros],
+        'Negativos': [negativos]
+    })
+
+    return resultado.to_dict(orient = 'records')
