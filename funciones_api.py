@@ -4,7 +4,6 @@
 # Importamos librerias
 import pandas as pd 
 import numpy as np
-import pyarrow as pa
 
 
 # Leemos los dataframes que alimentaran a las distintas funciones
