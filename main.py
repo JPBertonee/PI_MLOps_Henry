@@ -1,14 +1,18 @@
 """
-FUNCIONES API: En este documento .py encontrarás las funciones al detalle
+FUNCIONES API
 """
+
+
 # IMPORTAMOS LIBRERIAS A UTILIZAR
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 import funciones_api as funciones
 import pandas as pd 
 
+
 # INSTANCIAMOS LA APLICACION 
 app = FastAPI()
+
 
 # LECTURA DE ARCHIVOS UTILIZADOS EN LAS FUNCIONES
  
@@ -23,7 +27,6 @@ df_f6 = pd.read_parquet('data/df_f6.parquet')
 
 
 # PRESENTACION API
-
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
     html_content = """
@@ -50,8 +53,8 @@ async def read_root():
     """
     return HTMLResponse(content=html_content)
 
-# FUNCION 1
 
+# FUNCION 1
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
 async def userdata(user_id:str):
     '''
@@ -89,7 +92,6 @@ async def userdata(user_id:str):
 
 
 # FUNCION 2
-
 @app.get("/countreviews/{inicio}/{fin}", name = "countreviews (Fecha Inicio / Fecha Fin)")
 def countreviews(inicio, fin):
     '''
@@ -120,6 +122,25 @@ def countreviews(inicio, fin):
     
     
     # FUNCION 3
+@app.get("/genre/{genero}", name = "Genre (Genero)")
+def genre(genero):
+
+    '''
+    Esta función nos aroja en que puesto del ranking 'Playtime_Forever' se encuentra 
+    el género pasado como input.
+
+    Argumento: 
+    
+    genre (str): El género de juegos del cual se quiere conocer el ranking de horas jugadas. 
+
+    '''
+
+    #Filtramos el ranking según el genero y mostramos el valor de la columna posicion. 
+    posicion = df_ranking[df_ranking['genres'] == genero]['Posicion'].values().item()
+
+    return 'El género', genero, 'se encuentra en la posición', posicion   
+
+
     
     # FUNCION 4
     
