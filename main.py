@@ -218,15 +218,18 @@ def sentiment_analysis(anio):
     df_f6 (DataFrame): El DataFrame que contiene los datos de reseñas y sentimientos.
    
     '''
-
+    df_f6['posted'] = pd.to_datetime(df_f6['posted'],errors='coerce')
+    
     # Filtramos el DataFrame según el año definido como argumento
     df_filtered = df_f6[df_f6['posted'].dt.year == anio]
     
-   # Utilizamos value_counts() para contar los valores únicos en la columna 'sentimiento'
+    df_filtered['sentimiento'] = df_f6['sentimiento'].astype(int)
+    
+    # Iniciamos contadores
     positivos = 0
-    neutros = 0
     negativos = 0
-
+    neutros = 0 
+    
     # Obtenemos la cantidad de valores positivos, negativos y neutros
     for i in df_filtered['sentimiento']:
         if i == 2:
@@ -235,12 +238,10 @@ def sentiment_analysis(anio):
             neutros += 1
         elif i == 0:
             negativos += 1 
-  
+            
     # Crear un DataFrame con los resultados
-    resultado = {
+    return {
         'Positivos': positivos,
         'Neutros': neutros,
         'Negativos': negativos
     }
-
-    return resultado
