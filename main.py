@@ -222,19 +222,25 @@ def sentiment_analysis(anio):
     # Filtramos el DataFrame según el año definido como argumento
     df_filtered = df_f6[df_f6['posted'].dt.year == anio]
     
-    # Utilizamos value_counts() para contar los valores únicos en la columna 'sentimiento'
-    sentiment_counts = df_filtered['sentimiento'].value_counts()
+   # Utilizamos value_counts() para contar los valores únicos en la columna 'sentimiento'
+    positivos = 0
+    neutros = 0
+    negativos = 0
 
     # Obtenemos la cantidad de valores positivos, negativos y neutros
-    positivos = sentiment_counts.get(2, 0)  # Valor 2 para positivos 
-    neutros = sentiment_counts.get(1, 0) # Valor 1 para neutros 
-    negativos = sentiment_counts.get(0, 0) # Valor 0 para negativos 
-
+    for i in df_filtered['sentimiento']:
+        if i == 2:
+            positivos += 1
+        elif i == 1:
+            neutros += 1
+        elif i == 0:
+            negativos += 1 
+  
     # Crear un DataFrame con los resultados
-    resultado = pd.DataFrame({
-        'Positivos': [positivos],
-        'Neutros': [neutros],
-        'Negativos': [negativos]
-    })
+    resultado = {
+        'Positivos': positivos,
+        'Neutros': neutros,
+        'Negativos': negativos
+    }
 
-    return resultado.to_dict(orient = 'records')
+    return resultado
