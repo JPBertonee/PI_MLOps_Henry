@@ -4,9 +4,7 @@
 # Importamos librerias
 import pandas as pd 
 import numpy as np
-import json
-import gzip
-import ast
+
 
 # Leemos los dataframes que alimentaran a las distintas funciones
 df_items_full = pd.read_parquet('data/df_items_full.parquet')

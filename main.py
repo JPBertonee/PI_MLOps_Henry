@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-import 
+import funciones_api as funciones
 
 app = FastAPI()
 
@@ -35,4 +35,9 @@ async def read_root():
 @app.get("/PrimeraFuncion")
 def juan():
     return "Hola Juano, sos capo"
+
+@app.get("/user_data")
+def user_data(user_id):
+    return funciones.userdata(user_id)
+
 
