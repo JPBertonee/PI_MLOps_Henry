@@ -9,7 +9,7 @@ import gzip
 import ast
 
 # Leemos los dataframes que alimentaran a las distintas funciones
-df_items_full = pd.read_parquet('data/df_itrms_full.parquet')
+df_items_full = pd.read_parquet('data/df_items_full.parquet')
 df_items_games = pd.read_parquet('data/df_items_games.parquet')
 df_items_recommend = pd.read_parquet('data/df_items_recommend.parquet')
 df_f2 = pd.read_parquet('data/df_f2.parquet')
