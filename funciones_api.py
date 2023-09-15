@@ -5,9 +5,6 @@
 import pandas as pd 
 import numpy as np
 import pyarrow as pa
-import pyarrow.parquet as pq
-import fastparquet as fp
-
 
 
 # Leemos los dataframes que alimentaran a las distintas funciones
