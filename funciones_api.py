@@ -12,7 +12,7 @@ import fastparquet as fp
 
 # Leemos los dataframes que alimentaran a las distintas funciones
 df_items_full = pd.read_parquet('data/df_items_full.parquet')
-df_items_games = pd.read_parquet('data/df_items_games.parquet')
+df_f1 = pd.read_parquet('data/df_f1.parquet')
 df_items_recommend = pd.read_parquet('data/df_items_recommend.parquet')
 df_f2 = pd.read_parquet('data/df_f2.parquet')
 df_ranking = pd.read_parquet('data/df_ranking.parquet')
@@ -34,9 +34,9 @@ def userdata(user_id):
     
     '''
     # Verificamos si el usuario existe en el DataFrame
-    if user_id in df_items_games['user_id'].values and user_id in df_items_recommend['user_id'].values and user_id in df_items_full['user_id'].values:
+    if user_id in df_f1['user_id'].values and user_id in df_items_recommend['user_id'].values and user_id in df_items_full['user_id'].values:
         # Calcula la suma de la columna precio filtrando por el usuario.
-        money = df_items_games[df_items_games['user_id'] == user_id]['price'].sum()
+        money = df_f1[df_f1['user_id'] == user_id]['price'].sum()
         
         # Calcula la cantidad de reviews totales de todos los usuarios en el DataFrame df_reviews_full.
         tot_recommend = df_items_recommend[df_items_recommend['user_id'] == user_id]['recommend'].sum()
@@ -121,10 +121,7 @@ def userforgenre(genre):
     # Tomar los primeros 5 registros del DataFrame
     top5 = data[['user_id', 'user_url', 'playtime_forever']].head(5).reset_index(drop=True)
 
-    # Crear un mensaje descriptivo
-    mensaje = f'El TOP 5 de usuarios para el género "{genre}" es el siguiente'
-
-    return mensaje, top5
+    return  'El TOP 5 de usuarios para el género,', genre, 'es el siguiente', top5
 
 
 # Función 5
@@ -160,13 +157,12 @@ def developer(desarrollador):
     porcentaje_free = (items_free_por_anio / items_totales_por_anio) * 100
     
     # Creamos un DataFrame con los resultados
-    resultados = pd.DataFrame({
+    return {
         'Año': items_free_por_anio.index,
         'Cantidad de Items': items_totales_por_anio.values,
         'Porcentaje Free': porcentaje_free.values
-    })
+    }
     
-    return resultados
     
     
 # Función 6
