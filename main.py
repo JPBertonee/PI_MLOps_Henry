@@ -25,7 +25,7 @@ async def read_root():
             <p>Puedes agregar más contenido y personalizarlo según tus necesidades.</p>
         </main>
         <footer>
-            <p>&copy; 2023 Juan Pablo Bertone</p>
+            <p>&copy; - 2023 -  Juan Pablo Bertone</p>
         </footer>
     </body>
     </html>
