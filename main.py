@@ -163,6 +163,45 @@ def userforgenre(genre):
              'es el siguiente' : top5}
     
     # FUNCION 5
+@app.get("/developer/{desarrollador}", name = "Developer (Desarrollador)")
+def developer(desarrollador):
+
+    '''
+    Devuelve cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.
+
+    Argumento:
+    desarrolador (str): El developer del juego (item) para el cual se desea obtener los valores mencionados. 
+
+    '''
+
+    # Filtramos el DataFrame por el desarrollador dado
+    developer_df = df_f5[df_f5['developer'] == desarrollador]
+
+    # Calculamos la cantidad de ítems gratuitos (Free) por año para el desarrollador
+    items_free_por_anio = developer_df[developer_df['price'] == 0].groupby(developer_df['release_date'].dt.year)['item_id'].nunique()
+
+    # Calculamos la cantidad total de ítems por año para el desarrollador
+    items_totales_por_anio = developer_df.groupby(developer_df['release_date'].dt.year)['item_id'].nunique()
+
+    # Rellenamos los años faltantes en el DataFrame de items_free_por_anio con ceros para que no arroje error el dataframe
+    for year in items_totales_por_anio.index:
+        if year not in items_free_por_anio.index:
+            items_free_por_anio[year] = 0
+
+    # Ordenamos el DataFrame por año
+    items_free_por_anio = items_free_por_anio.sort_index()
+
+    # Calculamos el porcentaje de contenido Free por año
+    porcentaje_free = (items_free_por_anio / items_totales_por_anio) * 100
+
+    resultados = pd.DataFrame({
+        'Año': items_free_por_anio.index,
+        'Cantidad de Items Gratuitos': items_free_por_anio.values,
+        'Porcentaje Free': porcentaje_free.values
+    })
     
+    return resultados.to_dict(orient = 'records')
+
+
     # FUNCION 6
 
