@@ -1,10 +1,17 @@
+"""
+FUNCIONES API: En este documento .py encontrarás las funciones al detalle
+"""
+# IMPORTAMOS LIBRERIAS A UTILIZAR
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 import funciones_api as funciones
 import pandas as pd 
 
+# INSTANCIAMOS LA APLICACION 
 app = FastAPI()
 
+# LECTURA DE ARCHIVOS UTILIZADOS EN LAS FUNCIONES
+ 
 df_items_full = pd.read_parquet('data/df_items_full.parquet')
 df_f1 = pd.read_parquet('data/df_f1.parquet')
 df_items_recommend = pd.read_parquet('data/df_items_recommend.parquet')
@@ -14,7 +21,8 @@ df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
 df_f5 = pd.read_parquet('data/df_f5.parquet')
 df_f6 = pd.read_parquet('data/df_f6.parquet')
 
-# http://127.0.0.1:8000
+
+# PRESENTACION API
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
@@ -42,6 +50,8 @@ async def read_root():
     """
     return HTMLResponse(content=html_content)
 
+# FUNCION 1
+
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
 async def userdata(user_id:str):
     '''
@@ -50,6 +60,7 @@ async def userdata(user_id:str):
     y la cantidad de items del mismo. 
     
     Argumento:
+    
     user_id (str): ID de identifiación del usuario 
     
     '''
@@ -77,5 +88,42 @@ async def userdata(user_id:str):
         return 'Usuario no encontrado'
 
 
+# FUNCION 2
 
+@app.get("/countreviews/{inicio}/{fin}", name = "countreviews (Fecha Inicio / Fecha Fin)")
+def countreviews(inicio, fin):
+    '''
+    Calcula la cantidad de usuarios que realizaron reviews entre las fechas dadas y 
+    el porcentaje de recomendacion de esos usuarios.
+    
+    Argumentos:
+    
+    inicio (str): Fecha de inicio del periodo a evaluar.
+    
+    fin (str): Fecha de fin del periodo a evaluar
+    '''
+    inicio = pd.to_datetime(inicio)
+    fin = pd.to_datetime(fin) 
+    
+    # Filtra las filas del DataFrame que estén dentro del rango de fechas
+    reviews_entre_fechas = df_f2[(df_f2['posted'] >= inicio) & (df_f2['posted'] <= fin)]
+    
+    # Calcula la cantidad de usuarios únicos que realizaron reviews en ese período
+    cantidad_usuarios = reviews_entre_fechas['user_id'].nunique()
+    
+    reviews_reco = round(reviews_entre_fechas['recommend'].sum() / reviews_entre_fechas['recommend'].count() * 100,2).item()
+    
+    return {'Cantidad de usuarios:': cantidad_usuarios,
+            # Hacemos el cociente para calcular el porcentaje.
+        'Porcentaje de recomendación:': reviews_reco
+    }
+    
+    
+    # FUNCION 3
+    
+    # FUNCION 4
+    
+    # FUNCION 5
+    
+    # FUNCION 6
 
