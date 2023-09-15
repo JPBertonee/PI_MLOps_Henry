@@ -32,9 +32,6 @@ async def read_root():
     """
     return HTMLResponse(content=html_content)
 
-@app.get("/PrimeraFuncion")
-def juan():
-    return "Hola Juano, sos capo"
 
 @app.get("/user_data")
 def user_data(user_id):
