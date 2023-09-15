@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-import funciones_api as funciones
 
 app = FastAPI()
 
