@@ -17,7 +17,7 @@ app = FastAPI()
  
 df_items_full = pd.read_parquet('data/df_items_full.parquet')
 df_f1 = pd.read_parquet('data/df_f1.parquet')
-df_items_recommend = pd.read_parquet('data/df_items_recommend.parquet')
+df_reviews_full = pd.read_parquet('data/df_reviews_full.parquet')
 df_f2 = pd.read_parquet('data/df_f2.parquet')
 df_ranking = pd.read_parquet('data/df_ranking.parquet')
 df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
@@ -66,24 +66,25 @@ async def userdata(user_id:str):
     user_id (str): ID de identifiación del usuario 
     
     '''
-    # Calcula la suma de la columna precio filtrando por el usuario.
-    money = df_f1[df_f1['user_id'] == user_id]['price'].sum().item()
-    
-    # Calcula la cantidad de reviews totales de todos los usuarios en el DataFrame df_reviews_full.
-    tot_recommend = df_items_recommend[df_items_recommend['user_id'] == user_id]['recommend'].sum()
-    
-    # Calcula la cantidad de reviews filtrando por el usuario en el DataFrame df_reviews_full.
-    tot_items = df_items_recommend[df_items_recommend['user_id'] == user_id]['items_count'].iloc[0].item()
-    
-    # Calcula la cantidad de items filtrando por el usuario en el DataFrame df_items_full.
-    cant_items = df_items_full[df_items_full['user_id'] == user_id]['items_count'].iloc[0].item()
+    # Verificamos si el usuario existe en el DataFrame
+    if user_id in df_f1['user_id'].values and user_id in df_items_recommend['user_id'].values and user_id in df_items_full['user_id'].values:
+        # Calcula la suma de la columna precio filtrando por el usuario.
+        money = df_f1[df_f1['user_id'] == user_id]['price'].sum()
+        
+        # Calcula la cantidad de reviews para el usuario. 
+        tot_recommend = df_reviews_full[df_reviews_full['user_id'] == user_id]['recommend'].sum()
+       
+        # Calcula la cantidad de reviews filtrando por el usuario en el DataFrame df_reviews_full.
+        tot_items = df_items_full[df_items_full['user_id'] == user_id]['items_count'].iloc[0]
 
-    return {'Usuario:': user_id,
-            'Cantidad de dinero gastado:': money,
-            # Hacemos el cociente para calcular el porcentaje.
-            'Porcentaje de recomendación:': round((tot_recommend / tot_items) * 100, 2),
-            'Cantidad de items:': cant_items
-            }
+        return {'Usuario:': user_id,
+                'Cantidad de dinero gastado:': money,
+                # Hacemos el cociente para calcular el porcentaje.
+                'Porcentaje de recomendación:': round((tot_recommend / tot_items) * 100, 2),
+                'Cantidad de items:': tot_items
+                }
+    else:
+        return 'Usuario no encontrado'
 
 
 
