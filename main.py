@@ -6,7 +6,7 @@ FUNCIONES API's
 # IMPORTAMOS LIBRERIAS A UTILIZAR
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-import pandas as pd 
+import pandas as pd
 
 
 # INSTANCIAMOS LA APLICACION 
