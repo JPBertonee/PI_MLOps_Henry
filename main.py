@@ -195,7 +195,7 @@ def developer(desarrollador):
 
     resultados = pd.DataFrame({
         'Año': items_free_por_anio.index,
-        'Cantidad de Items Gratuitos': items_free_por_anio.values,
+        'Cantidad de Items': items_totales_por_anio.values,
         'Porcentaje Free': porcentaje_free.values
     })
     
