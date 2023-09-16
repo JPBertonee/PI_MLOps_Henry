@@ -220,7 +220,7 @@ def sentiment_analysis(anio):
     '''
     
     # Filtramos el DataFrame según el año definido como argumento
-    df_filtered = df_f6.loc[df_f6['posted'].dt.year == anio]
+    df_filtered = df_f6.loc[df_f6['anio'] == anio]
     
     df_filtered['sentimiento'] = df_f6['sentimiento'].astype(int)
     
