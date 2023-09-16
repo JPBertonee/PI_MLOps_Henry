@@ -223,11 +223,8 @@ def sentiment_analysis(anio):
     
     # Filtramos el DataFrame según el año definido como argumento
     df_filtered = df_f6[df_f6['anio'] == anio]
-    
     df_filtered['sentimiento'] = df_f6['sentimiento'].astype(int)
     
-    
-
     # Iniciamos contadores
     positivos = 0
     negativos = 0
