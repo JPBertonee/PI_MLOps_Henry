@@ -1,6 +1,6 @@
-fastapi==0.103.1
-numpy==1.25.2
-pandas==2.1.0
-textblob==0.17.1
-uvicorn==0.23.2
+fastapi
+numpy
+pandas
+textblob
+uvicorn
 
