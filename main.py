@@ -218,13 +218,16 @@ def sentiment_analysis(anio):
     df_f6 (DataFrame): El DataFrame que contiene los datos de reseñas y sentimientos.
    
     '''
-    df_f6['anio'] = df_f6['anio'].astype(int)
-
+    
+    df_f6['anio'] = df_f6['anio'].astype(int)    
+    
     # Filtramos el DataFrame según el año definido como argumento
     df_filtered = df_f6[df_f6['anio'] == anio]
     
     df_filtered['sentimiento'] = df_f6['sentimiento'].astype(int)
     
+    
+
     # Iniciamos contadores
     positivos = 0
     negativos = 0
