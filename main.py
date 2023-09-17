@@ -24,30 +24,50 @@ df_f5 = pd.read_parquet('data/df_f5.parquet')
 df_f6 = pd.read_parquet('data/df_f6.parquet')
 
 
-# Presentacion
-pagina_principal = """
+# HTML de la página de presentación
+pagina_presentacion = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Navegación FastAPI</title>
+    <title>Mi Página Web en FastAPI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <h1>Seleccione una función:</h1>
-    <ul>
-        <li><a href=""/userdata/">Función 1</a></li>
-        <li><a href="/coutreviews">Función 2</a></li>
-        <li><a href="/genre">Función 3</a></li>
-        <li><a href="/userforgenre">Función 4</a></li>
-        <li><a href="/developer">Función 5</a></li>
-        <li><a href="/sentimet_analysis">Función 6</a></li>
-    </ul>
+    <div class="container">
+        <h1>Bienvenido a mi entorno FastAPI</h1>
+        <p>A continuación encontratas 6 funciones que te permitiran obtener informacion acerca de la plataforma de juegos Stream.</p>
+        <p>Para poder acceder a ellas de una forma mas visual, le recomiento agregar en la url actual lo siguiente --> /docs.</p>
+        <p>De esta manera podrá acceder a la informacion de las funciones y entender el contexto.</p>
+    </div>
 </body>
 </html>
 """
 
 @app.get("/", response_class=HTMLResponse)
-async def mostrar_pagina_principal():
-    return pagina_principal
+async def mostrar_pagina_presentacion():
+    return pagina_presentacion
+
 
 # FUNCION 1
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
