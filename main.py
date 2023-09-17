@@ -60,6 +60,8 @@ pagina_presentacion = """
         <p>Para poder acceder a ellas de una forma mas visual, le recomiento agregar en la url actual lo siguiente --> /docs.</p>
         <b>Ejemplo: www.suURL.com/docs.</b>
         <p>De esta manera podrá acceder a la informacion de las funciones y entender el contexto.</p>
+        <div>
+        <p>Autor: Juan Pablo Bertone. 2023.</p>
     </div>
 </body>
 </html>
