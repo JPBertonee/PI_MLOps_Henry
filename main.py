@@ -35,6 +35,10 @@ async def userdata(user_id:str):
     
     user_id (str): ID de identifiación del usuario 
     
+    Ejemplo:
+    
+    user_id: 76561197970982479
+    
     '''
     # Calcula la suma de la columna precio filtrando por el usuario.
     money = round(df_f1[df_f1['user_id'] == user_id]['price'].sum(),2)
@@ -65,6 +69,12 @@ def countreviews(inicio, fin):
     inicio (str): Fecha de inicio del periodo a evaluar.
     
     fin (str): Fecha de fin del periodo a evaluar
+    
+    Ejemplo:
+    
+    inicio: 2010
+    
+    fin: 2012
     '''
     inicio = pd.to_datetime(inicio)
     fin = pd.to_datetime(fin) 
@@ -94,6 +104,10 @@ def genre(genero):
     Argumento: 
     
     genre (str): El género de juegos del cual se quiere conocer el ranking de horas jugadas. 
+    
+    Ejemplo:
+    
+    genero: Action
 
     '''
     # Filtramos el ranking según el género
@@ -113,6 +127,10 @@ def userforgenre(genre):
     Argumento:
     
     genre (str): El género de juegos para el que se desea obtener el TOP 5 de usuarios.
+    
+    Ejemplo:
+    
+    genero: Adventure
     
     '''
 
@@ -136,6 +154,10 @@ def developer(desarrollador):
     Argumento:
     
     desarrolador (str): El developer del juego (item) para el cual se desea obtener los valores mencionados. 
+    
+    Ejemplo:
+    
+    Desarrolador: Valve
 
     '''
 
@@ -178,6 +200,10 @@ def sentiment_analysis(anio):
     
     anio (int): Año en el cual queremos obtener el análisis de sentimiento.
     df_f6 (DataFrame): El DataFrame que contiene los datos de reseñas y sentimientos.
+    
+    Ejemplo:
+    
+    anio: 2012
    
     '''
     anio = int(anio)
