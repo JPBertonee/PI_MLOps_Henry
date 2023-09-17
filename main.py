@@ -5,6 +5,7 @@ FUNCIONES API's
 
 # IMPORTAMOS LIBRERIAS A UTILIZAR
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 import pandas as pd
 
 
@@ -22,6 +23,31 @@ df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
 df_f5 = pd.read_parquet('data/df_f5.parquet')
 df_f6 = pd.read_parquet('data/df_f6.parquet')
 
+
+# Presentacion
+pagina_principal = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navegación FastAPI</title>
+</head>
+<body>
+    <h1>Seleccione una función:</h1>
+    <ul>
+        <li><a href=""/userdata/">Función 1</a></li>
+        <li><a href="/coutreviews">Función 2</a></li>
+        <li><a href="/genre">Función 3</a></li>
+        <li><a href="/userforgenre">Función 4</a></li>
+        <li><a href="/developer">Función 5</a></li>
+        <li><a href="/sentimet_analysis">Función 6</a></li>
+    </ul>
+</body>
+</html>
+"""
+
+@app.get("/", response_class=HTMLResponse)
+async def mostrar_pagina_principal():
+    return pagina_principal
 
 # FUNCION 1
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
