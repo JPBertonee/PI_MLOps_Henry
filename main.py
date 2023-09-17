@@ -13,10 +13,9 @@ app = FastAPI()
 
 
 # LECTURA DE ARCHIVOS UTILIZADOS EN LAS FUNCIONES
- 
-df_items_full = pd.read_parquet('data/df_items_full.parquet')
 df_f1 = pd.read_parquet('data/df_f1.parquet')
-df_reviews_full = pd.read_parquet('data/df_reviews_full.parquet')
+df_f1_2 = pd.read_parquet('data/df_f1_2.parquet')
+df_f1_3 = pd.read_parquet('data/df_f1_3.parquet')
 df_f2 = pd.read_parquet('data/df_f2.parquet')
 df_ranking = pd.read_parquet('data/df_ranking.parquet')
 df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
@@ -38,21 +37,20 @@ async def userdata(user_id:str):
     
     '''
     # Calcula la suma de la columna precio filtrando por el usuario.
-    money = df_f1[df_f1['user_id'] == user_id]['price'].sum()
+    money = round(df_f1[df_f1['user_id'] == user_id]['price'].sum(),2)
     
     # Calcula la cantidad de reviews para el usuario. 
-    tot_recommend = df_reviews_full[df_reviews_full['user_id'] == user_id]['recommend'].sum()
+    tot_recommend = df_f1_2[df_f1_2['user_id'] == user_id]['recommend'].sum()
     
     # Calcula la cantidad de reviews filtrando por el usuario en el DataFrame df_reviews_full.
-    tot_items = df_items_full[df_items_full['user_id'] == user_id]['items_count'].iloc[0].item()
+    tot_items = df_f1_3[df_f1_3['user_id'] == user_id]['items_count'].iloc[0]
 
     return {'Usuario:': user_id,
-            'Cantidad de dinero gastado:': round(money,2),
+            'Cantidad de dinero gastado:': money,
             # Hacemos el cociente para calcular el porcentaje.
             'Porcentaje de recomendación:': round((tot_recommend / tot_items) * 100, 2),
             'Cantidad de items:': tot_items
             }
-
 
 
 # FUNCION 2
