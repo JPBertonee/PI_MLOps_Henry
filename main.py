@@ -44,7 +44,7 @@ async def userdata(user_id:str):
     tot_recommend = df_reviews_full[df_reviews_full['user_id'] == user_id]['recommend'].sum()
     
     # Calcula la cantidad de reviews filtrando por el usuario en el DataFrame df_reviews_full.
-    tot_items = df_items_full[df_items_full['user_id'] == user_id]['items_count'].iloc[0]
+    tot_items = df_items_full[df_items_full['user_id'] == user_id]['items_count'].iloc[0].item()
 
     return {'Usuario:': user_id,
             'Cantidad de dinero gastado:': money,
