@@ -47,7 +47,7 @@ async def userdata(user_id:str):
     tot_items = df_items_full[df_items_full['user_id'] == user_id]['items_count'].iloc[0].item()
 
     return {'Usuario:': user_id,
-            'Cantidad de dinero gastado:': money,
+            'Cantidad de dinero gastado:': round(money,2),
             # Hacemos el cociente para calcular el porcentaje.
             'Porcentaje de recomendación:': round((tot_recommend / tot_items) * 100, 2),
             'Cantidad de items:': tot_items
