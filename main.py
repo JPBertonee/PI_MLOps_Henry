@@ -56,10 +56,10 @@ pagina_presentacion = """
 <body>
     <div class="container">
         <h1>Bienvenido a mi entorno FastAPI</h1>
-        <p>A continuación encontrará 6 funciones que le permitirán obtener informacion acerca de la plataforma de juegos Stream.</p>
+        <p>A continuación encontrará 6 funciones que le permitirán obtener informacion acerca de la plataforma de juegos Steam.</p>
         <p>Para poder acceder a ellas de una forma mas visual, le recomiento agregar en la url actual lo siguiente --> /docs.</p>
         <b>Ejemplo: www.suURL.com/docs.</b>
-        <p>De esta manera podrá acceder a la informacion de las funciones y entender el contexto.</p>
+        <p>De esta manera podrá acceder a la información de las funciones y entender el contexto.</p>
         <div>
         <p>Autor: Juan Pablo Bertone. 2023.</p>
     </div>
