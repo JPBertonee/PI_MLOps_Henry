@@ -125,9 +125,9 @@ def countreviews(inicio, fin):
     
     <b>Ejemplo:</b>
     
-    inicio: 2010
+    inicio: 2010-12-30
     
-    fin: 2012
+    fin: 2013-06-25
     '''
     inicio = pd.to_datetime(inicio)
     fin = pd.to_datetime(fin) 
