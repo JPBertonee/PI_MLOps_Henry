@@ -78,7 +78,7 @@ async def userdata(user_id:str):
     '''
     <b>Objetivo:</b>
     
-    Devuelve para el usuario pasado como parametro
+    Devuelve, para el usuario pasado como parametro,
     el dinero gastado, el porcentaje de recomendación 
     y la cantidad de items del mismo.
     
