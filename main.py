@@ -73,18 +73,19 @@ async def mostrar_pagina_presentacion():
 
 
 # FUNCION 1
-@app.get("/userdata/{user_id}", name = "userdata (user_id)")
+@app.get("/userdata/{user_id}", name = "USERDATA")
 async def userdata(user_id:str):
     '''
-    La siguiente función filtra por el usuario pasado como argumento
-    y arroja el dinero gastado por dicho usuario, el porcentaje de recomendación 
-    y la cantidad de items del mismo. 
+    <b>Objetivo:</b>
+    Devuelve para el usuario pasado como parametro
+    el dinero gastado, el porcentaje de recomendación 
+    y la cantidad de items del mismo.
     
-    Argumento:
+    <b>Argumento:</b>
     
     user_id (str): ID de identifiación del usuario 
     
-    Ejemplo:
+    <b>Ejemplo:</b>
     
     user_id: 76561197970982479
     
@@ -107,19 +108,21 @@ async def userdata(user_id:str):
 
 
 # FUNCION 2
-@app.get("/countreviews/{inicio}/{fin}", name = "countreviews (Fecha Inicio / Fecha Fin)")
+@app.get("/countreviews/{inicio}/{fin}", name = "COUNTREVIEWS")
 def countreviews(inicio, fin):
     '''
-    Calcula la cantidad de usuarios que realizaron reviews entre las fechas dadas y 
-    el porcentaje de recomendacion de esos usuarios.
+    <b>Objetivo:</b>
     
-    Argumentos:
+    Devuelve la cantidad de usuarios que realizaron reviews entre 
+    las fechas dadas y el porcentaje de recomendacion de esos usuarios.
+    
+    <b>Argumentos:</b>
     
     inicio (str): Fecha de inicio del periodo a evaluar.
     
     fin (str): Fecha de fin del periodo a evaluar
     
-    Ejemplo:
+    <b>Ejemplo:</b>
     
     inicio: 2010
     
@@ -143,18 +146,20 @@ def countreviews(inicio, fin):
     
     
 # FUNCION 3
-@app.get("/genre/{genero}", name = "Genre (Genero)")
+@app.get("/genre/{genero}", name = "GENRE")
 def genre(genero):
 
     '''
-    Esta función nos aroja en que puesto del ranking 'Playtime_Forever' se encuentra 
-    el género pasado como input.
+    <b>Objetivo:</b>
+    
+    Devuelve en que puesto se encuentra el género 
+    en el ranking "Mayor cantidad de horas jugadas en la plataforma".
 
-    Argumento: 
+    <b>Argumento:</b>
     
     genre (str): El género de juegos del cual se quiere conocer el ranking de horas jugadas. 
     
-    Ejemplo:
+    <b>Ejemplo:</b>
     
     genero: Action
 
@@ -168,16 +173,19 @@ def genre(genero):
 
     
 # FUNCION 4
-@app.get("/userforgenre/{genre}", name = "User for Genre (Genero)")
+@app.get("/userforgenre/{genre}", name = "USERFORGENRE )")
 def userforgenre(genre):
     '''
+    
+    <b>Objetivo:</b>
+    
     Devuelve el TOP 5 de usuarios con más horas jugadas en un género específico.
 
-    Argumento:
+    <b>Argumento:</b>
     
     genre (str): El género de juegos para el que se desea obtener el TOP 5 de usuarios.
     
-    Ejemplo:
+    <b>Ejemplo:</b>
     
     genero: Adventure
     
@@ -194,17 +202,20 @@ def userforgenre(genre):
     
 
 # FUNCION 5
-@app.get("/developer/{desarrollador}", name = "Developer (Desarrollador)")
+@app.get("/developer/{desarrollador}", name = "DEVELOPER")
 def developer(desarrollador):
 
     '''
+    
+    <b>Objetivo:</b>
+    
     Devuelve cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.
 
-    Argumento:
+    <b>Argumento:</b>
     
     desarrolador (str): El developer del juego (item) para el cual se desea obtener los valores mencionados. 
     
-    Ejemplo:
+    <b>Ejemplo:</b>
     
     Desarrolador: Valve
 
@@ -240,17 +251,19 @@ def developer(desarrollador):
 
 
 # FUNCION 6
-@app.get("/sentimet_analysis/{anio}", name = "Análisis de Sentimiento (Año)")
+@app.get("/sentimet_analysis/{anio}", name = "SENTIMENT_ANALYSIS")
 def sentiment_analysis(anio):
     ''' 
+    <b>Objetivo:</b>
+    
     Devuelve un DataFrame con la cantidad de registros de reseñas de usuarios categorizados por análisis de sentimiento para un año específico.
     
-    Argumentos:
+    <b>Argumentos:</b>
     
     anio (int): Año en el cual queremos obtener el análisis de sentimiento.
     df_f6 (DataFrame): El DataFrame que contiene los datos de reseñas y sentimientos.
     
-    Ejemplo:
+    <b>Ejemplo:</b>
     
     anio: 2012
    
