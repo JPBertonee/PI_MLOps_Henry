@@ -173,7 +173,7 @@ def genre(genero):
 
     
 # FUNCION 4
-@app.get("/userforgenre/{genre}", name = "USERFORGENRE )")
+@app.get("/userforgenre/{genre}", name = "USERFORGENRE")
 def userforgenre(genre):
     '''
     
