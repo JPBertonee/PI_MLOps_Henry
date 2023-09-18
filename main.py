@@ -10,7 +10,7 @@ import pandas as pd
 
 
 # INSTANCIAMOS LA APLICACION 
-app = FastAPI(str='Plataforma para consultas sobre plataforma de juegos < Stream >')
+app = FastAPI()
 
 
 # LECTURA DE ARCHIVOS UTILIZADOS EN LAS FUNCIONES
