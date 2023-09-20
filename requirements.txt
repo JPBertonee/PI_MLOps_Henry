@@ -5,3 +5,4 @@ textblob
 uvicorn
 pyarrow
 fastparquet
+sklearn
