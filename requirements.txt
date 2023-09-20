@@ -5,4 +5,4 @@ textblob
 uvicorn
 pyarrow
 fastparquet
-sklearn
+scikit-learn
