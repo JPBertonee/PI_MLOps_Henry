@@ -301,6 +301,10 @@ def sentiment_analysis(anio):
 
 
 # FUNCION 7
+
+# Calcula la matriz de similitud coseno una sola vez y almacénala en caché
+similitudes_cache = cosine_similarity(df_modelo_final.iloc[:, 3:])
+
 @app.get("/recomendacion_juego/{id}", name = "RECOMENDACIÓN JUEGO")
 def recomendacion_juego(id):
     """
@@ -318,17 +322,15 @@ def recomendacion_juego(id):
     
     """
     id = int(id)
+    
     # Filtrar el juego de entrada por su ID
     juego_seleccionado = df_modelo_final[df_modelo_final['id'] == id]
     
     if juego_seleccionado.empty:
         return "El juego con el ID especificado no existe en la base de datos."
     
-    # Calcular la matriz de similitud coseno
-    similitudes = cosine_similarity(df_modelo_final.iloc[:,3:])
-    
-    # Obtener las puntuaciones de similitud del juego de entrada con otros juegos
-    similarity_scores = similitudes[df_modelo_final[df_modelo_final['id'] == id].index[0]]
+    # Obtener las puntuaciones de similitud del juego de entrada con otros juegos desde la caché
+    similarity_scores = similitudes_cache[juego_seleccionado.index[0]]
     
     # Obtener los índices de los juegos más similares (excluyendo el juego de entrada)
     indices_juegos_similares = similarity_scores.argsort()[::-1][1:5+1]
