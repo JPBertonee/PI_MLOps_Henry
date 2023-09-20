@@ -324,7 +324,7 @@ def recomendacion_juego(id):
     """
     id = int(id)
     
-    cargar_datos_modelo()
+    df_modelo_final = cargar_datos_modelo()
     
     # Filtrar el juego de entrada por su ID
     juego_seleccionado = df_modelo_final[df_modelo_final['id'] == id]
