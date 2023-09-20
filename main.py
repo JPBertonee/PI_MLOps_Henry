@@ -29,10 +29,6 @@ def cargar_datos_modelo():
     df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
     return df_modelo_final
 
-# Definir función para cerrar el archivo
-def cerrar_datos(df):
-    df.close()
-df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
 
 
 # HTML de la página de presentación
