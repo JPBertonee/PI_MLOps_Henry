@@ -320,10 +320,7 @@ def recomendacion_juego(id):
     id = int(id)
     # Filtrar el juego de entrada por su ID
     juego_seleccionado = df_modelo_final[df_modelo_final['id'] == id]
-    
-    if juego_seleccionado.empty:
-        return "El juego con el ID especificado no existe en la base de datos."
-    
+
     # Calcular la matriz de similitud coseno
     similitudes = cosine_similarity(df_modelo_final.iloc[:,3:])
     
