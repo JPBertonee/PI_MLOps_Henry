@@ -325,6 +325,7 @@ def recomendacion_juego(id):
     id = int(id)
     
     cargar_datos_modelo()
+    
     # Filtrar el juego de entrada por su ID
     juego_seleccionado = df_modelo_final[df_modelo_final['id'] == id]
 
@@ -339,7 +340,5 @@ def recomendacion_juego(id):
     
     # Obtener los nombres de los juegos recomendados
     juegos_recomendados = df_modelo_final.iloc[indices_juegos_similares]['app_name']
-    
-    cerrar_datos(df_modelo_final)
     
     return juegos_recomendados
