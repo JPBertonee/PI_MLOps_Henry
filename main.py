@@ -336,4 +336,4 @@ def recomendacion_juego(id):
     # Obtener los nombres de los juegos recomendados
     juegos_recomendados = df_modelo_final.iloc[indices_juegos_similares]['app_name']
     
-    return juegos_recomendados.to_dict()
+    return juegos_recomendados
