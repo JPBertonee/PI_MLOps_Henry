@@ -23,6 +23,15 @@ df_ranking = pd.read_parquet('data/df_ranking.parquet')
 df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
 df_f5 = pd.read_parquet('data/df_f5.parquet')
 df_f6 = pd.read_parquet('data/df_f6.parquet')
+
+# Definir funciones de carga de datos bajo demanda
+def cargar_datos_modelo():
+    df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
+    return df_modelo_final
+
+# Definir función para cerrar el archivo
+def cerrar_datos(df):
+    df.close()
 df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
 
 
@@ -318,6 +327,8 @@ def recomendacion_juego(id):
     
     """
     id = int(id)
+    
+    cargar_datos_modelo()
     # Filtrar el juego de entrada por su ID
     juego_seleccionado = df_modelo_final[df_modelo_final['id'] == id]
 
@@ -332,5 +343,7 @@ def recomendacion_juego(id):
     
     # Obtener los nombres de los juegos recomendados
     juegos_recomendados = df_modelo_final.iloc[indices_juegos_similares]['app_name']
+    
+    cerrar_datos(df_modelo_final)
     
     return juegos_recomendados
