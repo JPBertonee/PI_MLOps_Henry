@@ -302,7 +302,7 @@ def sentiment_analysis(anio):
 
 # FUNCION 7
 @app.get("/recomendacion_juego/{id}", name = "RECOMENDACIÓN JUEGO")
-def sentiment_analysis(anio):
+def recomendacion_juego(id):
     """
      <b>Objetivo:</b>
     
