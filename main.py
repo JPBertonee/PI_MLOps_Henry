@@ -63,7 +63,7 @@ pagina_presentacion = """
         <b>Ejemplo: www.suURL.com/docs.</b>
         <p>De esta manera podrá acceder a la información de las funciones y entender el contexto y como utilizarlas.</p>
         <div>
-        <p>Autor: Juan Pablo Bertone. 2023.</p>
+        <p>Autor: Juan Pablo Bertone. <2023></p>
     </div>
 </body>
 </html>
