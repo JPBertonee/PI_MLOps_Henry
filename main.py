@@ -7,6 +7,7 @@ FUNCIONES API's
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 # INSTANCIAMOS LA APLICACION 
@@ -22,6 +23,7 @@ df_ranking = pd.read_parquet('data/df_ranking.parquet')
 df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
 df_f5 = pd.read_parquet('data/df_f5.parquet')
 df_f6 = pd.read_parquet('data/df_f6.parquet')
+df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
 
 
 # HTML de la página de presentación
@@ -262,7 +264,6 @@ def sentiment_analysis(anio):
     <b>Argumentos:</b>
     
     anio (int): Año en el cual queremos obtener el análisis de sentimiento.
-    df_f6 (DataFrame): El DataFrame que contiene los datos de reseñas y sentimientos.
     
     <b>Ejemplo:</b>
     
@@ -297,3 +298,42 @@ def sentiment_analysis(anio):
         'Neutros': neutros,
         'Negativos': negativos
     }
+
+
+# FUNCION 7
+@app.get("/recomendacion_juego/{id}", name = "RECOMENDACIÓN JUEGO")
+def sentiment_analysis(anio):
+    """
+     <b>Objetivo:</b>
+    
+    Devuelve una lista de 5 juegos similares al pasado como argumento, basandose en el género del mismo.
+    
+    <b>Argumentos:</b>
+    
+    id (int): ID de identificación del juego.
+    
+    <b>Ejemplo:</b>
+    
+    id: 449940 
+    
+    """
+    id = int(id)
+    # Filtrar el juego de entrada por su ID
+    juego_seleccionado = df_modelo_final[df_modelo_final['id'] == id]
+    
+    if juego_seleccionado.empty:
+        return "El juego con el ID especificado no existe en la base de datos."
+    
+    # Calcular la matriz de similitud coseno
+    similitudes = cosine_similarity(df_modelo_final.iloc[:,3:])
+    
+    # Obtener las puntuaciones de similitud del juego de entrada con otros juegos
+    similarity_scores = similitudes[df_modelo_final[df_modelo_final['id'] == id].index[0]]
+    
+    # Obtener los índices de los juegos más similares (excluyendo el juego de entrada)
+    indices_juegos_similares = similarity_scores.argsort()[::-1][1:5+1]
+    
+    # Obtener los nombres de los juegos recomendados
+    juegos_recomendados = df_modelo_final.iloc[indices_juegos_similares]['app_name'].tolist()
+    
+    return juegos_recomendados
