@@ -15,22 +15,57 @@ app = FastAPI()
 
 
 # LECTURA DE ARCHIVOS UTILIZADOS EN LAS FUNCIONES
-df_f1 = pd.read_parquet('data/df_f1.parquet')
-df_f1_2 = pd.read_parquet('data/df_f1_2.parquet')
-df_f1_3 = pd.read_parquet('data/df_f1_3.parquet')
-df_f2 = pd.read_parquet('data/df_f2.parquet')
-df_ranking = pd.read_parquet('data/df_ranking.parquet')
-df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
-df_f5 = pd.read_parquet('data/df_f5.parquet')
-df_f6 = pd.read_parquet('data/df_f6.parquet')
+# df_f1 = pd.read_parquet('data/df_f1.parquet')
+# df_f1_2 = pd.read_parquet('data/df_f1_2.parquet')
+# df_f1_3 = pd.read_parquet('data/df_f1_3.parquet')
+# df_f2 = pd.read_parquet('data/df_f2.parquet')
+# df_ranking = pd.read_parquet('data/df_ranking.parquet')
+# df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
+# df_f5 = pd.read_parquet('data/df_f5.parquet')
+# df_f6 = pd.read_parquet('data/df_f6.parquet')
 
 # Definir funciones de carga de datos bajo demanda
 def cargar_datos_modelo():
     df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
     return df_modelo_final
 
-def cerrar_datos(df):
-    df.close()
+def cargar_df_f1():
+    df_f1 = pd.read_parquet('data/df_f1.parquet')
+    return df_f1
+
+def cargar_df_f1_2():
+    df_f1_2 = pd.read_parquet('data/df_f1_2.parquet')
+    return df_f1_2
+
+def cargar_df_f1_3():
+    df_f1_3 = pd.read_parquet('data/df_f1_3.parquet')
+    return df_f1_3
+
+def cargar_df_f2():
+    df_f2 = pd.read_parquet('data/df_f2.parquet')
+    return df_f2
+
+def cargar_df_ranking():
+    df_ranking = pd.read_parquet('data/df_ranking.parquet')
+    return df_ranking
+
+def cargar_datos_modelo():
+    df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
+    return df_modelo_final
+
+def cargar_df_user_genre():
+    df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
+    return df_user_genre
+
+def cargar_df_f5():
+    df_f5 = pd.read_parquet('data/df_f5.parquet')
+    return df_f5
+
+def cargar_df_f6():
+    df_f6 = pd.read_parquet('data/df_f6.parquet')
+    return df_f6
+
+
 
 # HTML de la página de presentación
 pagina_presentacion = """
@@ -99,6 +134,10 @@ async def userdata(user_id:str):
     user_id: 76561197970982479
     
     '''
+    df_f1 = cargar_df_f1()
+    df_f1_2 = cargar_df_f1_2()
+    df_f1_3 = cargar_df_f1_3()
+    
     # Calcula la suma de la columna precio filtrando por el usuario.
     money = round(df_f1[df_f1['user_id'] == user_id]['price'].sum(),2)
     
@@ -136,7 +175,10 @@ def countreviews(inicio, fin):
     inicio: 2010-12-30
     
     fin: 2013-06-25
+
     '''
+    df_f2 = cargar_df_f2()
+    
     inicio = pd.to_datetime(inicio)
     fin = pd.to_datetime(fin) 
     
@@ -173,6 +215,8 @@ def genre(genero):
     genero: Action
 
     '''
+    df_ranking = cargar_df_ranking()
+    
     # Filtramos el ranking según el género
     posicion = df_ranking[df_ranking['genres'] == genero]['Posicion'].iloc[0].item()
     
@@ -199,6 +243,8 @@ def userforgenre(genre):
     genero: Adventure
     
     '''
+    
+    df_user_genre = cargar_df_user_genre()
 
     # Filtrar el DataFrame para obtener datos específicos del género
     data = df_user_genre[df_user_genre['genres'] == genre]
@@ -229,6 +275,8 @@ def developer(desarrollador):
     Desarrolador: Valve
 
     '''
+
+    df_f5 = cargar_df_f5()
 
     # Filtramos el DataFrame por el desarrollador dado
     developer_df = df_f5[df_f5['developer'] == desarrollador]
@@ -276,6 +324,9 @@ def sentiment_analysis(anio):
     anio: 2012
    
     '''
+    
+    df_f6 = cargar_df_f6()
+    
     anio = int(anio)
     df_f6['anio'] = df_f6['anio'].astype(int)    
     
@@ -341,7 +392,5 @@ def recomendacion_juego(id):
     
     # Obtener los nombres de los juegos recomendados
     juegos_recomendados = df_modelo_final.iloc[indices_juegos_similares]['app_name']
-    
-    cerrar_datos(df_modelo_final)
     
     return juegos_recomendados
