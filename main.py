@@ -29,7 +29,8 @@ def cargar_datos_modelo():
     df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
     return df_modelo_final
 
-
+def cerrar_datos(df):
+    df.close()
 
 # HTML de la página de presentación
 pagina_presentacion = """
@@ -340,5 +341,7 @@ def recomendacion_juego(id):
     
     # Obtener los nombres de los juegos recomendados
     juegos_recomendados = df_modelo_final.iloc[indices_juegos_similares]['app_name']
+    
+    cerrar_datos(df_modelo_final)
     
     return juegos_recomendados
