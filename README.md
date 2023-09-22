@@ -80,6 +80,8 @@ Para poder consumir la API de en la web, utilizamos el servicio web proporcionad
 
 Render construye y despliega automáticamente el servicioweb y de esta manera puede consumirse por cualquier usuario desde un navegador y utilizando internet. Para implementar un servicio web en Render, conectamos el repositorio de GitHub (precisamente este) donde se encuentra el archivo *main.py** que contiene el desarrollo de la API en el framework FastAPI. 
 
+En el siguiente link se encuentra alojado el servicio web: [Deploy en Render](https://apis-d6pt.onrender.com)
+
 
 # **Conslusiones**
 Mediante el desarrollo de este proyecto se logró poner en practica lo aprendido durante el cursado de la carrera de Data Science en la academia Henry. Precisamente, hemos desarrollado algunas de las tareas llevadas a cabo por un Data Engineer y un Data Scientist. 
