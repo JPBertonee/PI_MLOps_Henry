@@ -60,6 +60,14 @@ Otra parte importante del proyecto es la creación de las funciones. A continuac
 
 Estas funciones deben poder consumirse de forma local y desde un servidor web. Para ello utilizamos el framework ***FastAPI*** y el servidor web ***Render***
 ### 5. Análisis exploratorio de datos - EDA
+En este paso se realiza el análisis exploratorio de los datos presentes en el archivo que sirve como base para la creación del modelo de recomendación que es el paso próximo para la finalizacón del proyecto. 
+
+Antes de construir un modelo de machine learning, es esencial comprender los datos a través del análisis exploratorio. Esto incluye la visualización de datos, la identificación de patrones, la detección de valores atípicos y la comprensión de las relaciones entre las variables.
 
 ### 6. Modelamiento (Machine Learning Model Development)
+En este paso, desarrollamos el modelo de machine learning utilizando los datos preparados anteriormente. Como base para el mismo se utiliza el dataset **steam_games**. Incluye la creación de una función, el modelo propieamente dicho y la adaptación de los datos que alimentaran a la función para que retornen el valor esperado. 
+
+En este caso la funcion a crear es la siguiente: 
+
++ **`def recomendacion_juego( id de producto )`:** Esta función toma el id de un juego como entrada y devuelve una lista con 5 juegos recomendados similares al ingresado considerando para dicha similitud, los generos del juego. 
 
