@@ -31,6 +31,8 @@ El desarrollo del proyecto esta basado en tres datasets de la plataforma Steam:
 
 3. ***user_items:*** información acerca de la actividad de los usuarios dentro de la plataforma Steam.
 
+Para entender el detalle de cada uno de los datasets, siga el siguiente enlace: [Detalles DataSets](Diccionario_de_datos.xlsx)
+
 ## **Desarrollo**
 
 Para seguir en detalle el desarrollo del proyecto, siga el siguiente enlace: [Desarrollo](Desarrollo.ipynb)
@@ -70,4 +72,6 @@ En este paso, desarrollamos el modelo de machine learning utilizando los datos p
 En este caso la funcion a crear es la siguiente: 
 
 + **`def recomendacion_juego( id de producto )`:** Esta función toma el id de un juego como entrada y devuelve una lista con 5 juegos recomendados similares al ingresado considerando para dicha similitud, los generos del juego. 
+
+## **Conslusiones**
 

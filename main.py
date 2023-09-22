@@ -2,7 +2,6 @@
 FUNCIONES API's
 """
 
-
 # IMPORTAMOS LIBRERIAS A UTILIZAR
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
@@ -14,17 +13,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 app = FastAPI()
 
 
-# LECTURA DE ARCHIVOS UTILIZADOS EN LAS FUNCIONES
-# df_f1 = pd.read_parquet('data/df_f1.parquet')
-# df_f1_2 = pd.read_parquet('data/df_f1_2.parquet')
-# df_f1_3 = pd.read_parquet('data/df_f1_3.parquet')
-# df_f2 = pd.read_parquet('data/df_f2.parquet')
-# df_ranking = pd.read_parquet('data/df_ranking.parquet')
-# df_user_genre= pd.read_parquet('data/df_user_genre.parquet')
-# df_f5 = pd.read_parquet('data/df_f5.parquet')
-# df_f6 = pd.read_parquet('data/df_f6.parquet')
-
-# Definir funciones de carga de datos bajo demanda
+# DEFINIMOS FUNCIONES DE CARGA DE DATAFRAMES
 def cargar_datos_modelo():
     df_modelo_final = pd.read_parquet('data/df_modelo_final.parquet')
     return df_modelo_final
@@ -66,7 +55,6 @@ def cargar_df_f6():
     return df_f6
 
 
-
 # HTML de la página de presentación
 pagina_presentacion = """
 <!DOCTYPE html>
@@ -100,8 +88,8 @@ pagina_presentacion = """
     <div class="container">
         <h1>Bienvenido a mi entorno FastAPI</h1>
         <p>A continuación encontrará 6 funciones que le permitirán obtener información acerca de la plataforma de juegos Steam.</p>
-        <p>Para poder acceder a ellas, le recomiento agregar en la url actual, lo siguiente --> /docs.</p>
-        <b>Ejemplo: www.suURL.com/docs.</b>
+        <p>Para poder acceder a ellas, le recomiento agregar en la url actual, lo siguiente --> /docs</p>
+        <b>Ejemplo: www.suURL.com/docs</b>
         <p>De esta manera podrá acceder a la información de las funciones y entender el contexto y como utilizarlas.</p>
         <div>
         <p>Autor: Juan Pablo Bertone. <2023></p>
@@ -110,6 +98,7 @@ pagina_presentacion = """
 </html>
 """
 
+# MOSTRAMOS LA PRESENTACIÓN
 @app.get("/", response_class=HTMLResponse)
 async def mostrar_pagina_presentacion():
     return pagina_presentacion
