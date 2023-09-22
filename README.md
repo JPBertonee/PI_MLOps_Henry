@@ -25,11 +25,25 @@ Steam es una plataforma de distribución digital y comunidad de jugadores líder
 
 El desarrollo del proyecto esta basado en tres datasets de la plataforma Steam:
 
-1. **Steam_Games:**
+1. ***steam_games:*** información relacionada a los juegos dentro de la plataforma Steam. Por ejemplo: Nombre del juego, género, fecha de lanzamiento, entre otras. 
 
-2. **User_Reviews:**
+2. ***user_reviews:*** información que detalla las reviews realizadas por los usuarios de la plataforma Steam.
 
-3. **User_Items:**
+3. ***user_items:*** información acerca de la actividad de los usuarios dentro de la plataforma Steam.
+
+## **Desarrollo**
+Para observar en detalle el desarrollo del proyecto, siga el siguiente enlace: [Desarrollo](#Desarrollo.ipynb)
+### Ingesta de datos
+
+### Tratamiento de datos - ETL
+
+### Feature Engineering
+
+### Funciones y disponibiliación de datos
+
+### Análisis exploratorio de datos - EDA
+
+### Modelamiento (Machine Learning Model Development)
 
 
 
