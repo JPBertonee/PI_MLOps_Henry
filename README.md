@@ -1,9 +1,10 @@
 # PROYECTO INDIVIDUAL 1 
 ## *Machine Learning Operations (MLOps)*<p>
+
 </p>
 
 ## **Introducción** 
-*** 
+
 El objetivo de este proyecto es desarrollar un Producto Mínimo Viable (MVP) que incluya una API desplegada en un servicio en la nube y la implementación de un de Machine Learning. 
 
 En primer lugar, se proporcionan datos que serán fundamentales para este proyecto. Estos datos incluyen información sobre los comentarios de los usuarios de los juegos, detalles sobre los juegos disponibles en la plataforma Steam y informacion respecto a los usuarios de la plataforma. 
@@ -19,11 +20,11 @@ Para garantizar que estas funcionalidades sean accesibles y escalables, la API s
 En resumen, este proyecto representa un esfuerzo integral para mejorar la experiencia de los usuarios en Steam al aprovechar el poder de la ciencia de datos y el Machine Learning.
 
 ## **Contexto**
-***
+
 Steam es una plataforma de distribución digital y comunidad de jugadores líder en la industria de los videojuegos. Desarrollada por Valve Corporation, Steam ofrece a los usuarios una amplia gama de juegos para PC y otras plataformas. También es conocida por su sólida infraestructura de actualización y gestión de juegos, así como por su plataforma de desarrollo de juegos Steamworks, que brinda a los desarrolladores herramientas para crear y publicar juegos en la plataforma. Steam ha sido un pionero en la distribución digital de videojuegos y ha desempeñado un papel fundamental en la evolución de la industria de los videojuegos en línea.
 
 ## **Datasets**
-***
+
 El desarrollo del proyecto esta basado en tres datasets de la plataforma Steam:
 
 1. **Steam_Games:**
