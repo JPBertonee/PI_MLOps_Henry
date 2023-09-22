@@ -11,11 +11,9 @@ En primer lugar, se proporcionan datos que serán fundamentales para este proyec
 
 La primera funcionalidad importante del MVP es el desarrollo y la aplicación de 6 funciones que retornen información relevante sobre los datos pasados como parametros y asi tener respuesta a las preguntas de negocio. 
 
-Una de estas funciones, y a modo de ejemplo, es el desarrollo de un modelo de análisis de sentimientos aplicado a los comentarios de los usuarios de juegos. Este modelo permitirá evaluar de manera automática si los comentarios son positivos, negativos o neutros. Esto proporcionará información valiosa sobre la satisfacción de los usuarios con los juegos y permitirá a Steam tomar decisiones informadas sobre mejoras y actualizaciones. El resto de las funciones serán explicadas en el desarrollo del proyecto. 
+Una de estas funciones, a modo de ejemplo, es el desarrollo de un modelo de análisis de sentimientos aplicado a los comentarios de los usuarios de juegos. Este modelo permitirá evaluar de manera automática si los comentarios son positivos, negativos o neutros. Esto proporcionará información valiosa sobre la satisfacción de los usuarios con los juegos y permitirá a Steam tomar decisiones informadas sobre mejoras y actualizaciones. El resto de las funciones serán explicadas en el desarrollo del proyecto. 
 
 La segunda funcionalidad es un sistema de recomendación de juegos. Este sistema se basa en ofrecer recomendaciones de juegos a partir de la simiulud que tienen con respecto a el/los géneros. 
-
-Para garantizar que estas funcionalidades sean accesibles y escalables, la API se desplegará en un servicio en la nube confiable y escalable llamado Render. Esto permitirá a los usuarios acceder a las funcionalidades de análisis del proyecto de manera eficiente y sin problemas.
 
 En resumen, este proyecto representa un esfuerzo integral para mejorar la experiencia de los usuarios en Steam al aprovechar el poder de la ciencia de datos y el Machine Learning.
 
