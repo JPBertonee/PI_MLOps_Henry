@@ -1,7 +1,5 @@
 # PROYECTO INDIVIDUAL 1  
-***Machine Learning Operations (MLOps)***<p>
-
-</p>
+***Machine Learning Operations (MLOps)***
 
 ## **Introducción** 
 
