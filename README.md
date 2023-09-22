@@ -32,18 +32,46 @@ El desarrollo del proyecto esta basado en tres datasets de la plataforma Steam:
 3. ***user_items:*** información acerca de la actividad de los usuarios dentro de la plataforma Steam.
 
 ## **Desarrollo**
-Para observar en detalle el desarrollo del proyecto, siga el siguiente enlace: [Desarrollo](Desarrollo.ipynb)
-### Ingesta de datos
-
-### Tratamiento de datos - ETL
-
-### Feature Engineering
-
-### Funciones y disponibiliación de datos
-
-### Análisis exploratorio de datos - EDA
-
-### Modelamiento (Machine Learning Model Development)
 
 
+A continuación se explicará, de forma breve, el paso a paso del desarrollo del proyecto.
 
+### 1. Ingesta de datos:
+En este paso se cargan los datasets mencionados anteriormente con el objetivo de poder trabajarlos. 
+### 2. Tratamiento de datos - ETL
+Una vez cargados los datos, es común que necesiten ser limpiados y transformados para que sean útiles en el análisis. Este proceso implica la transformación de los datos para que sean coherentes y que el resultado del análisis cumpla con el obejetivo. 
+### 3. Feature Engineering
+Como se menciono en la introducción, una parte del proyecto incluye el desarrollo de un modelo de análisis de sentimientos aplicado a los comentarios de los usuarios de juegos. Este modelo se desarrolla sobre el dataset **user_reviews** 
+### 4. Funciones y disponibiliación de datos
+Otra parte importante del proyecto es la creación de las funciones. A continuacion detallamos cada una de ellas:
+
++ **userdata(User_id: str):** 
+
+        Esta función toma como entrada el ID de un usuario y devuelve la cantidad de dinero gastado por ese usuario, el porcentaje de recomendación basado en las revisiones (reviews.recommend) y la cantidad de items relacionados con ese usuario.
+
++ **countreviews(YYYY-MM-DD y YYYY-MM-DD: str):** 
+
+        Esta función toma dos fechas en formato YYYY-MM-DD como entrada y devuelve la cantidad de usuarios que realizaron reviews entre esas dos fechas, así como el porcentaje de recomendación basado en las reviews realizadas durante ese período.
+
++ **genre(género: str):** 
+
+        Esta función toma un género como entrada y devuelve la posición en la que se encuentra ese género en un ranking analizado bajo la columna PlayTimeForever.
+
++ **userforgenre(género: str):** 
+
+        Esta función toma un género como entrada y devuelve los cinco usuarios con más horas de juego en ese género, junto con sus URL de usuario (del juego) y sus IDs de usuario.
+
++ **developer(desarrollador: str):** 
+
+        Esta función toma como entrada el nombre de una empresa desarrolladora y devuelve la cantidad de items (juegos o contenido) producidos por esa empresa por año, así como el porcentaje de contenido gratuito en esos items.
+
++ **sentiment_analysis(año: int):** 
+
+        Esta función toma un año como entrada y devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento para ese año en particular.
+
+Estas funciones deben poder consumirse de forma local y desde un servidor web. Para ello utilizamos el framework ***FastAPI*** y el servidor web ***Render***
+### 5. Análisis exploratorio de datos - EDA
+
+### 6. Modelamiento (Machine Learning Model Development)
+
+Para seguir en detalle el desarrollo del proyecto, siga el siguiente enlace: [Desarrollo](Desarrollo.ipynb)
