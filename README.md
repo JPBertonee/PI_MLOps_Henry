@@ -46,17 +46,17 @@ Como se menciono en la introducción, una parte del proyecto incluye el desarrol
 ### 4. Funciones y disponibiliación de datos
 Otra parte importante del proyecto es la creación de las funciones. A continuacion detallamos cada una de ellas:
 
-+ **userdata(User_id: str):** Esta función toma como entrada el ID de un usuario y devuelve la cantidad de dinero gastado por ese usuario, el porcentaje de recomendación basado en las revisiones (reviews.recommend) y la cantidad de items relacionados con ese usuario.
++ **`userdata(User_id: str)`:** Esta función toma como entrada el ID de un usuario y devuelve la cantidad de dinero gastado por ese usuario, el porcentaje de recomendación basado en las revisiones (reviews.recommend) y la cantidad de items relacionados con ese usuario.
 
-+ **countreviews(YYYY-MM-DD y YYYY-MM-DD: str):** Esta función toma dos fechas en formato YYYY-MM-DD como entrada y devuelve la cantidad de usuarios que realizaron reviews entre esas dos fechas, así como el porcentaje de recomendación basado en las reviews realizadas durante ese período.
++ **`countreviews(YYYY-MM-DD y YYYY-MM-DD: str)`:** Esta función toma dos fechas en formato YYYY-MM-DD como entrada y devuelve la cantidad de usuarios que realizaron reviews entre esas dos fechas, así como el porcentaje de recomendación basado en las reviews realizadas durante ese período.
 
-+ **genre(género: str):** Esta función toma un género como entrada y devuelve la posición en la que se encuentra ese género en un ranking analizado bajo la columna PlayTimeForever.
++ **`genre(género: str)`:** Esta función toma un género como entrada y devuelve la posición en la que se encuentra ese género en un ranking analizado bajo la columna PlayTimeForever.
 
-+ **userforgenre(género: str):** Esta función toma un género como entrada y devuelve los cinco usuarios con más horas de juego en ese género, junto con sus URL de usuario (del juego) y sus IDs de usuario.
++ **`userforgenre(género: str)`:** Esta función toma un género como entrada y devuelve los cinco usuarios con más horas de juego en ese género, junto con sus URL de usuario (del juego) y sus IDs de usuario.
 
-+ **developer(desarrollador: str):** Esta función toma como entrada el nombre de una empresa desarrolladora y devuelve la cantidad de items (juegos o contenido) producidos por esa empresa por año, así como el porcentaje de contenido gratuito en esos items.
++ **`developer(desarrollador: str)`:** Esta función toma como entrada el nombre de una empresa desarrolladora y devuelve la cantidad de items (juegos o contenido) producidos por esa empresa por año, así como el porcentaje de contenido gratuito en esos items.
 
-+ **sentiment_analysis(año: int):** Esta función toma un año como entrada y devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento para ese año en particular.
++ **`sentiment_analysis(año: int)`:** Esta función toma un año como entrada y devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento para ese año en particular.
 
 Estas funciones deben poder consumirse de forma local y desde un servidor web. Para ello utilizamos el framework ***FastAPI*** y el servidor web ***Render***
 ### 5. Análisis exploratorio de datos - EDA
