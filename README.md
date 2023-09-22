@@ -32,7 +32,7 @@ El desarrollo del proyecto esta basado en tres datasets de la plataforma Steam:
 3. ***user_items:*** información acerca de la actividad de los usuarios dentro de la plataforma Steam.
 
 ## **Desarrollo**
-Para observar en detalle el desarrollo del proyecto, siga el siguiente enlace: [Desarrollo](main/Desarrollo.ipynb)
+Para observar en detalle el desarrollo del proyecto, siga el siguiente enlace: [Desarrollo](Desarrollo.ipynb)
 ### Ingesta de datos
 
 ### Tratamiento de datos - ETL
