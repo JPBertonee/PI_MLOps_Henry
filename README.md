@@ -1,5 +1,5 @@
-# PROYECTO INDIVIDUAL 1 
-## *Machine Learning Operations (MLOps)*<p>
+# PROYECTO INDIVIDUAL 1  
+***Machine Learning Operations (MLOps)***<p>
 
 </p>
 
