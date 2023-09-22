@@ -29,7 +29,7 @@ El desarrollo del proyecto esta basado en tres datasets de la plataforma Steam:
 
 3. ***user_items:*** información acerca de la actividad de los usuarios dentro de la plataforma Steam.
 
-Para entender el detalle de cada uno de los datasets, siga el siguiente enlace: [DataSets](Diccionario_de_datos.xlsx)
+Para entender el detalle de cada uno de los datasets, siga el siguiente enlace: [DataSets](DiccionarioDeDatos.xlsx)
 
 # **Desarrollo**
 
