@@ -76,7 +76,7 @@ En este caso la funcion a crear es la siguiente:
 Es importante mencionar que dicha función tambien se encuentra en FastAPI y deployada en Render junto a las funciones mencionadas en el punto 4. 
 
 # **Deployment**
-Para poder consumir la API de en la web, utilizamos el servicio web proporcionado por la plataforma **Render**.
+Para poder consumir la API en la web, utilizamos el servicio web proporcionado por la plataforma **Render**.
 
 Render construye y despliega automáticamente el servicioweb y de esta manera puede consumirse por cualquier usuario desde un navegador y utilizando internet. Para implementar un servicio web en Render, conectamos el repositorio de GitHub (precisamente este) donde se encuentra el archivo *main.py** que contiene el desarrollo de la API en el framework FastAPI. 
 
