@@ -1,6 +1,7 @@
 <h1 align=center>  🚀 PROYECTO INDIVIDUAL 1 🚀 </h1>
 <h1 align=center> Machine Learning Operations (MLOps) </h1>
 
+
 # **Introducción** 
 
 El objetivo de este proyecto es desarrollar un Producto Mínimo Viable (MVP) que incluya una API desplegada en un servicio en la nube y la implementación de un modelo de Machine Learning. 
@@ -83,7 +84,7 @@ Render construye y despliega automáticamente el servicioweb y de esta manera pu
 En el siguiente link se encuentra alojado el servicio web: [Deploy en Render](https://apis-d6pt.onrender.com)
 
 
-# **Conslusiones**
+# **Conclusiones**
 Mediante el desarrollo de este proyecto se logró poner en practica lo aprendido durante el cursado de la carrera de Data Science en la academia Henry. Precisamente, hemos desarrollado algunas de las tareas llevadas a cabo por un Data Engineer y un Data Scientist. 
 
 Dado que es un proyecto con intenciones academicas, algunos de los resultados obtenidos no son precisamente los esperados ya que para cumplir con los requisitos se recurrió a la reduccion de los datasets (por motivos de memoria al querer realizar el deplyment en el servicio web). 
