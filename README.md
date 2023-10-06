@@ -1,7 +1,16 @@
 <h1 align=center>  🚀 PROYECTO INDIVIDUAL 1 🚀 </h1>
 <h1 align=center> Machine Learning Operations (MLOps) </h1>
 
-
+  ![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
+  ![Pandas](https://img.shields.io/badge/-Pandas-333333?style=flat&logo=pandas)
+  ![Numpy](https://img.shields.io/badge/-Numpy-333333?style=flat&logo=numpy)
+  ![Scikitlearn](https://img.shields.io/badge/-Scikitlearn-333333?style=flat&logo=scikitlearn)
+  ![GitHub](https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github)
+  ![Jupyter](https://img.shields.io/badge/-Jupyter-333333?style=flat&logo=jupyter)
+  ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-333333?style=flat&logo=visual-studio-code&logoColor=007ACC)
+  ![FastAPI](https://img.shields.io/badge/-FastAPI-333333?style=flat&logo=fastapi)
+  ![Render](https://img.shields.io/badge/-Render-333333?style=flat&logo=render)
+  
 # **Introducción** 
 
 El objetivo de este proyecto es desarrollar un Producto Mínimo Viable (MVP) que incluya una API desplegada en un servicio en la nube y la implementación de un modelo de Machine Learning. 
