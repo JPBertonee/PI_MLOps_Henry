@@ -1,6 +1,7 @@
 <h1 align=center>  🚀 PROYECTO INDIVIDUAL 1 🚀 </h1>
 <h1 align=center> Machine Learning Operations (MLOps) </h1>
 
+<h1 align=center>
   ![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
   ![Pandas](https://img.shields.io/badge/-Pandas-333333?style=flat&logo=pandas)
   ![Numpy](https://img.shields.io/badge/-Numpy-333333?style=flat&logo=numpy)
